@@ -5,12 +5,13 @@
 // Defaults to false.
 
 define(
-    ["core/utils"], // load this to be sure that the jQuery extensions are loaded
-    function (utils) {
+    ["text!w3c/css/permalinks.css", "core/utils"], // load this to be sure that the jQuery extensions are loaded
+    function (css, utils) {
         return {
             run:    function (conf, doc, cb, msg) {
                 if (conf.includePermalinks === true ) {
                     msg.pub("start", "w3c/permalinks");
+                    $(doc).find("head link").first().before($("<style/>").text(css));
                     var $secs = $(doc).find("h2, h3, h4, h5, h6");
                     $secs.each(function(i, item) {
                         var $item = $(item)
