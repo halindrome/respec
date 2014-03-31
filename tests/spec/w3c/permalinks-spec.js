@@ -65,9 +65,12 @@ describe("W3C — Permalinks", function () {
         });
         waitsFor(function () { return doc; }, MAXOUT);
         runs(function () {
-            var $c = $("#testing", doc);
-            var list = $c.children(".permalink") ;
-            expect(list.length).toEqual(1);
+            var $c = $("#sotd", doc) ;
+            var list = $c.children(".permalink");
+            expect(list.length).toEqual(0);
+            $c = $("#testing", doc);
+            list = $c.children(".permalink") ;
+            expect(list.length).toEqual(0);
             flushIframes();
         });
     });
