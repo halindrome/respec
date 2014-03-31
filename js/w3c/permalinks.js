@@ -1,17 +1,20 @@
 // Module w3c/permalinks
 // Adds "permalinks" into the document at sections with explicit IDs
 // Introduced by Shane McCarron (shane@aptest.com) from the W3C PFWG
+//
 // Only enabled when the includePermalinks option is set to true.
 // Defaults to false.
+//
 // When includePermalinks is enabled, the following options are
 // supported:
 //
 //     permalinkSymbol:    the character(s) to use for the link.
 //                         Defaults to §
-//     permalinkEdge:      The link will be right-justified.  Otherwise 
+//     permalinkEdge:      Boolean. The link will be right-justified.  Otherwise 
 //                         it will be immediately after the heading text.
-//     permalinkHide:      The symbol will be hidden until the header is 
-//                         hovered over.  
+//                         Defaults to false.
+//     permalinkHide:      Boolean. The symbol will be hidden until the header is 
+//                         hovered over.  Defaults to false.
 
 define(
     ["tmpl!w3c/css/permalinks.css", "core/utils"], // load this to be sure that the jQuery extensions are loaded
