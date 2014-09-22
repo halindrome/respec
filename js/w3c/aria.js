@@ -29,6 +29,16 @@ define(
                 var $head = $('div.head') ;
                 $head.attr('role', 'contentinfo') ;
                 $head.attr('id', 'respecHeader') ;
+                if (conf.ariaNoMastheadHeaders !== false) {
+                    var $title = $('h1.title') ;
+                    if ($title) {
+                        $title.attr('role', 'presentation') ;
+                        var $st = $title.next('h2') ;
+                        if ($st) {
+                            $st.attr('role', 'presentation') ;
+                        }
+                    }
+                }
                 if (!conf.noTOC) {
                     // ensure toc is labelled
                     var toc = $('section#toc', doc);
